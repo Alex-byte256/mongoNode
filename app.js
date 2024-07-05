@@ -1,9 +1,9 @@
-const express = require('express');
+const mongoose = require('mongoose');
 
-const app = express();
+const DB_HOST = "mongodb+srv://admin:Zupa_325@cluster0.lmqeqwx.mongodb.net/books-collections?retryWrites=true&w=majority&appName=Cluster0";
 
-app.use(express.json());
-
-app.listen(3000,()=>{
-    console.log("Server started on port 3000");
+mongoose.connect(DB_HOST).then(()=>{
+    console.log("MongoDB Connected!");
+}).catch(err=>{
+    console.log(err);
 })
